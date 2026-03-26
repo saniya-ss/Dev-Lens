@@ -48,5 +48,13 @@ This repository contains a full-stack web application with a Node.js/Express bac
 3. Commit and push (`git commit -m "Add xyz"`)
 4. Open a pull request
 
-## 📄 License
+## � Deployment Notes
+- `api.js` currently uses `API_BASE_URL = 'http://localhost:5000/api'`; for production change this to your deployed API host, e.g. `https://your-domain.com/api`.
+- For same-origin deployments, use a relative base URL:
+  - `const API_BASE_URL = '/api';`
+- Ensure backend is actually running and reachable.
+- Confirm CORS origin is allowed in `backend/app.js` (e.g., `FRONTEND_URL` in `.env`).
+- `ERR_CONNECTION_REFUSED` means the browser cannot connect to your backend host (not running, wrong port, or wrong URL).
+
+## �📄 License
 Add your preferred license (e.g., MIT) here.
