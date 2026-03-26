@@ -1,0 +1,72 @@
+<div id="home-page" class="page">
+  <div class="container">
+    <!-- Authentication Section -->
+    <div class="auth-section">
+      <div class="auth-tabs">
+        <button id="login-tab" class="tab active" onclick="showAuthTab('login')">Login</button>
+        <button id="register-tab" class="tab" onclick="showAuthTab('register')">Register</button>
+      </div>
+
+      <!-- Login Form -->
+      <div id="login-form" class="auth-form">
+        <h2>Login to Your Account</h2>
+        <form onsubmit="handleLogin(event)">
+          <div class="form-group">
+            <label for="login-email">Email</label>
+            <input type="email" id="login-email" required>
+          </div>
+          <div class="form-group">
+            <label for="login-password">Password</label>
+            <input type="password" id="login-password" required>
+          </div>
+          <button type="submit" class="btn btn-primary">Login</button>
+        </form>
+      </div>
+
+      <!-- Register Form -->
+      <div id="register-form" class="auth-form" style="display: none;">
+        <h2>Create New Account</h2>
+        <form onsubmit="handleRegister(event)">
+          <div class="form-group">
+            <label for="register-name">Name</label>
+            <input type="text" id="register-name" required>
+          </div>
+          <div class="form-group">
+            <label for="register-email">Email</label>
+            <input type="email" id="register-email" required>
+          </div>
+          <div class="form-group">
+            <label for="register-password">Password</label>
+            <input type="password" id="register-password" required minlength="6">
+          </div>
+          <button type="submit" class="btn btn-primary">Register</button>
+        </form>
+      </div>
+    </div>
+
+    <!-- Info Section -->
+    <div class="info-section">
+      <h2>Welcome to Project Manager</h2>
+      <p>Manage your projects efficiently with AI-powered insights.</p>
+
+      <div class="features">
+        <div class="feature">
+          <h3>🔐 Secure Authentication</h3>
+          <p>Secure login and registration system</p>
+        </div>
+        <div class="feature">
+          <h3>📊 Project Dashboard</h3>
+          <p>View all your projects in one place</p>
+        </div>
+        <div class="feature">
+          <h3>🤖 AI Insights</h3>
+          <p>Get AI-powered project analysis</p>
+        </div>
+        <div class="feature">
+          <h3>☁️ Cloud Storage</h3>
+          <p>Data stored securely in Firebase</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

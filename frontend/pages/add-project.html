@@ -1,0 +1,61 @@
+<div id="add-project-page" class="page" style="display: none;">
+  <div class="container">
+    
+    <!-- Add Project Form -->
+    <div class="form-container">
+      <h2>Add New Project</h2>
+      <form onsubmit="handleAddProject(event)">
+        
+        <!-- Project Name -->
+        <div class="form-group">
+          <label for="project-name">Project Name</label>
+          <input type="text" id="project-name" required placeholder="Enter project name">
+        </div>
+        
+        <!-- Project Description -->
+        <div class="form-group">
+          <label for="project-description">Description</label>
+          <textarea id="project-description" required placeholder="Describe your project"></textarea>
+        </div>
+        
+        <!-- Project Status -->
+        <div class="form-group">
+          <label for="project-status">Status</label>
+          <select id="project-status" required>
+            <option value="planning">Planning</option>
+            <option value="in-progress">In Progress</option>
+            <option value="completed">Completed</option>
+            <option value="on-hold">On Hold</option>
+          </select>
+        </div>
+        
+        <!-- Project Priority -->
+        <div class="form-group">
+          <label for="project-priority">Priority</label>
+          <select id="project-priority" required>
+            <option value="low">Low</option>
+            <option value="medium">Medium</option>
+            <option value="high">High</option>
+            <option value="urgent">Urgent</option>
+          </select>
+        </div>
+        
+        <!-- Form Actions -->
+        <div class="form-actions">
+          <button type="button" onclick="showPage('dashboard')" class="btn btn-secondary">Cancel</button>
+          <button type="submit" class="btn btn-primary">Add Project</button>
+        </div>
+      </form>
+    </div>
+    
+    <!-- AI Notice -->
+    <div class="ai-notice">
+      <h3>🤖 AI Integration</h3>
+      <p>
+        Once you add this project, our AI system will analyze it and provide insights 
+        including completion percentage and recommendations.
+      </p>
+    </div>
+    
+  </div>
+</div>
