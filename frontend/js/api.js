@@ -2,7 +2,7 @@
 // For dev/local: http://localhost:5000/api
 // For deployed frontend + separate backend, set the real backend URL.
 // For same-host deployments (proxy from frontend host): '/api'
-const API_BASE_URL = window.__API_BASE_URL__ || '/api';
+const API_BASE_URL = '/api';
 
 // API Helper Functions
 class API {
