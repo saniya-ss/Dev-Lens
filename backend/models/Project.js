@@ -42,6 +42,13 @@ class Project {
     await projectRef.update(updateData);
     return { id, ...updateData };
   }
+
+  static async delete(id) {
+    if (!db) throw new Error('Database not initialized');
+    const projectRef = db.collection('projects').doc(id);
+    await projectRef.delete();
+    return { id, deleted: true };
+  }
 }
 
 module.exports = Project;

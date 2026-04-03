@@ -202,10 +202,35 @@ const reanalyzeProject = async (req, res) => {
   }
 };
 
+// @desc    Delete project
+// @route   DELETE /api/projects/:id
+// @access  Private
+const deleteProject = async (req, res) => {
+  try {
+    const project = await Project.findById(req.params.id);
+
+    if (!project) {
+      return res.status(404).json({ message: 'Project not found' });
+    }
+
+    // Check if user owns the project
+    if (project.userId !== req.user.id) {
+      return res.status(401).json({ message: 'Not authorized' });
+    }
+
+    await Project.delete(req.params.id);
+
+    res.status(200).json({ message: 'Project deleted successfully' });
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+};
+
 module.exports = {
   getProjects,
   createProject,
   getProject,
   updateProject,
+  deleteProject,
   reanalyzeProject,
 };

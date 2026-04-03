@@ -132,6 +132,7 @@ function createProjectCard(project) {
                     </ul>
                 ` : ''}
                 <button class="btn-reanalyze" onclick="reanalyzeProject('${project.id}')">🔄 Re-run Analysis</button>
+                <button class="btn-delete" onclick="deleteProject('${project.id}')">🗑️ Delete</button>
             </div>
         </div>
     `;
@@ -151,6 +152,27 @@ async function reanalyzeProject(projectId) {
     } catch (error) {
         showMessage('Failed to re-analyze project', 'error');
         console.error('Reanalyze error:', error);
+    } finally {
+        hideLoading();
+    }
+}
+
+async function deleteProject(projectId) {
+    if (!confirm('Are you sure you want to delete this project? This action cannot be undone.')) {
+        return;
+    }
+
+    showLoading();
+
+    try {
+        await API.deleteProject(projectId);
+
+        showMessage('Project deleted successfully!', 'success');
+        loadProjects();
+
+    } catch (error) {
+        showMessage('Failed to delete project', 'error');
+        console.error('Delete error:', error);
     } finally {
         hideLoading();
     }
